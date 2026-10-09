@@ -81,3 +81,58 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
+
+.skills ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  list-style: none;
+  padding: 0;
+}
+
+.skills li {
+  background-color: oklch(from var(--color-accent) 95% 5% h);
+  padding: 0.2em 0.7em;
+  border-radius: 1em;
+}
+
+.education ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  list-style: none;
+  padding: 0;
+}
+
+.education li {
+  background-color: oklch(from var(--color-accent) 95% 5% h);
+  padding: 0.2em 0.7em;
+  border-radius: 1em;
+}
+
+.experience {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+  gap: 1em;
+}
+
+.experience article {
+  border: 1px solid oklch(80% 3% 200);
+  border-radius: 0.5em;
+  padding: 1em;
+}
+
+.experience h2 {
+  grid-column: 1 / -1;
+}
+
+.experience h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.extracurriculars article{
+  border-left: 0.25em solid var(--color-accent);
+  padding-left: 1em;
+  margin-block: 1em;
+}
