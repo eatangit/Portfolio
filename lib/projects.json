@@ -1,0 +1,67 @@
+[
+    {
+        "title": "Big project",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo reprehenderit maxime voluptatem aliquam repellendus. Labore quia aperiam in recusandae! Non eveniet officia quo at ratione alias iusto, deleniti facilis aut?"
+    },
+    {
+        "title": "Dignissimos amet culpa harum.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Consequuntur saepe eaque perspiciatis, debitis expedita laborum, exercitationem corporis sit praesentium voluptatibus ut. Deserunt exercitationem dolores reprehenderit vel facilis. Sed laboriosam dolores at dicta aut repellat earum quia tempore dolore?"
+    },
+    {
+        "title": "Saepe fugiat deleniti optio?",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Id velit sapiente voluptatum, quaerat dicta sit sed natus delectus voluptates aliquid tempora eius, eligendi aut. Ullam quia officia ratione dolorum, culpa nam facilis adipisci consequuntur, deleniti saepe illo voluptate?"
+    },
+    {
+        "title": "Obcaecati quia officia ipsum!",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Tempora saepe explicabo eligendi eum id neque dicta dignissimos officiis, similique vero sit laboriosam esse harum quaerat iusto facere maiores ab corporis laudantium porro quam exercitationem! Quia distinctio ipsam natus!"
+    },
+    {
+        "title": "Quis expedita ad iusto.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Aliquam earum animi rem a, tempora voluptas culpa iste, eveniet facilis nemo nulla dignissimos perferendis consequatur quis cumque placeat voluptates minima reiciendis voluptatem voluptate. Libero quam autem ratione quaerat eius!"
+    },
+    {
+        "title": "Maxime nesciunt sed eaque!",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Veritatis earum et dolorem non possimus sint nisi ducimus, excepturi natus, sit repudiandae eveniet sapiente eius quasi repellendus consequuntur culpa aliquid? Similique, soluta sed culpa delectus nemo iste eum placeat!"
+    },
+    {
+        "title": "Iusto molestiae voluptas exercitationem.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Deleniti vel quis, enim omnis ratione illum a, mollitia voluptatibus veritatis assumenda quidem aspernatur. Eveniet, natus maiores odio possimus quidem repudiandae corporis sunt sed vitae beatae facere dolorum explicabo. Quis!"
+    },
+    {
+        "title": "Ex ab alias voluptates.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Dolorem repellendus distinctio maiores itaque minus provident temporibus quam esse nulla quisquam dolore quidem sint, non animi similique magnam suscipit quibusdam dolores. Autem neque eos doloribus. Sint quae repellat quisquam."
+    },
+    {
+        "title": "Veniam quo eveniet minima?",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Molestias vel obcaecati magni, nisi corporis quasi placeat delectus impedit nihil officiis, ipsa rerum molestiae minima iste necessitatibus, tempore laborum! Facilis reiciendis at deleniti, et aliquam saepe vel laboriosam ut."
+    },
+    {
+        "title": "Sunt accusamus repellendus consequatur.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Mollitia reiciendis autem voluptatum numquam laborum non ex expedita, velit quo perferendis adipisci deserunt, consequatur quae quas cumque alias enim optio tempore placeat! Ipsum sequi perspiciatis voluptates qui facere rerum!"
+    },
+    {
+        "title": "Ducimus praesentium rerum in.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Praesentium eveniet illum iste provident magnam eligendi asperiores minima. Et vel eius beatae libero? Numquam possimus corporis necessitatibus ad aperiam dicta praesentium nobis iste, reprehenderit consequuntur qui harum minus! Assumenda?"
+    },
+    {
+        "title": "Dolore dolorem tempore provident?",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Possimus voluptatum excepturi ipsam modi doloribus voluptatibus pariatur in, repellendus adipisci natus iste, neque at sequi veniam ducimus consequatur nisi error labore, totam perferendis! Ratione, atque. Ipsam velit autem cumque."
+    },
+    {
+        "title": "CA Trout Fishing Optimizer",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Built an end-to-end ETL pipeline in Python that scrapes California CDFW trout stocking data, ingests weather and barometric pressure from REST APIs, loading processed data into PostgreSQL on a daily schedule using AWS Lambda with processed data archived to S3. Developed a weighted scoring model which factors stocking recency, water temperature, pressure trends, and cloud coverage to rank optimal fishing locations by day, visualized through an interactive dashboard with maps, rankings, and historical trend visualizations."
+    }
+]

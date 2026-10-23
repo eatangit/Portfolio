@@ -89,3 +89,52 @@ form?.addEventListener('submit', function (event) {
     url += params.join('&');
     location.href = url;
 });
+
+export async function fetchJSON(url) {
+  try {
+    // Fetch the JSON file from the given URL
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+    // Make sure we were given a real DOM element
+    if (!containerElement) {
+      console.error('renderProjects: container element not found');
+      return;
+    }
+
+    // Only allow h1–h6; fall back to h2 otherwise
+    if (!/^h[1-6]$/.test(headingLevel)) {
+      headingLevel = 'h2';
+    }
+
+    // Clear out anything already in the container
+    containerElement.innerHTML = '';
+
+    // Show a message if there are no projects
+    if (!projects || projects.length === 0) {
+      containerElement.innerHTML = '<p>No projects to display.</p>';
+      return;
+    }
+
+    for (let project of projects) {
+      const article = document.createElement('article');
+
+      article.innerHTML = `
+        <${headingLevel}>${project.title}</${headingLevel}>
+        <img src="${project.image}" alt="${project.title}">
+        <p>${project.description}</p>
+      `;
+
+      containerElement.appendChild(article);
+    }
+}
