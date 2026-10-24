@@ -1,9 +1,27 @@
 [
   {
-    "title": "Big project",
-    "year": "2025",
+    "title": "Are Countries Getting Worse on Emissions as They Urbanize?",
+    "year": "2026",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo reprehenderit maxime voluptatem aliquam repellendus. Labore quia aperiam in recusandae! Non eveniet officia quo at ratione alias iusto, deleniti facilis aut?"
+    "description": "DSC 106 Project 2: a website that explores a climate-change dataset and presents visualizations arguing both for and against the proposition that countries get worse on emissions as they urbanize."
+  },
+  {
+    "title": "NBA Win Prediction",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "DSC 148 final project: built win-prediction models from historical NBA player box scores, filtering out garbage-time minutes, comparing logistic regression baselines against XGBoost, and using SHAP analysis, ablation studies, and case studies to identify which stats actually drive wins."
+  },
+  {
+    "title": "CA Trout Fishing Optimizer",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Built an end-to-end ETL pipeline in Python that scrapes California CDFW trout stocking data, ingests weather and barometric pressure from REST APIs, loading processed data into PostgreSQL on a daily schedule using AWS Lambda with processed data archived to S3. Developed a weighted scoring model which factors stocking recency, water temperature, pressure trends, and cloud coverage to rank optimal fishing locations by day, visualized through an interactive dashboard with maps, rankings, and historical trend visualizations."
+  },
+  {
+    "title": "Dive into League of Legends",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "DSC 80 project with Sreekar Vemula: analyzed 2022 professional League of Legends match data from Oracle's Elixir to ask whether a player's stats at 10 minutes predict a win. Covered data cleaning, EDA, missingness analysis, and hypothesis testing; a tuned Random Forest reached 60.99% test accuracy versus a 58.82% logistic regression baseline."
   },
   {
     "title": "Dignissimos amet culpa harum.",
@@ -13,7 +31,7 @@
   },
   {
     "title": "Saepe fugiat deleniti optio?",
-    "year": "2024",
+    "year": "2025",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Id velit sapiente voluptatum, quaerat dicta sit sed natus delectus voluptates aliquid tempora eius, eligendi aut. Ullam quia officia ratione dolorum, culpa nam facilis adipisci consequuntur, deleniti saepe illo voluptate?"
   },
@@ -43,7 +61,7 @@
   },
   {
     "title": "Ex ab alias voluptates.",
-    "year": "2023",
+    "year": "2022",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Dolorem repellendus distinctio maiores itaque minus provident temporibus quam esse nulla quisquam dolore quidem sint, non animi similique magnam suscipit quibusdam dolores. Autem neque eos doloribus. Sint quae repellat quisquam."
   },
@@ -55,26 +73,8 @@
   },
   {
     "title": "Sunt accusamus repellendus consequatur.",
-    "year": "2022",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Mollitia reiciendis autem voluptatum numquam laborum non ex expedita, velit quo perferendis adipisci deserunt, consequatur quae quas cumque alias enim optio tempore placeat! Ipsum sequi perspiciatis voluptates qui facere rerum!"
-  },
-  {
-    "title": "Ducimus praesentium rerum in.",
-    "year": "2022",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Praesentium eveniet illum iste provident magnam eligendi asperiores minima. Et vel eius beatae libero? Numquam possimus corporis necessitatibus ad aperiam dicta praesentium nobis iste, reprehenderit consequuntur qui harum minus! Assumenda?"
-  },
-  {
-    "title": "Dolore dolorem tempore provident?",
     "year": "2021",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Possimus voluptatum excepturi ipsam modi doloribus voluptatibus pariatur in, repellendus adipisci natus iste, neque at sequi veniam ducimus consequatur nisi error labore, totam perferendis! Ratione, atque. Ipsam velit autem cumque."
-  },
-  {
-    "title": "CA Trout Fishing Optimizer",
-    "year": "2026",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Built an end-to-end ETL pipeline in Python that scrapes California CDFW trout stocking data, ingests weather and barometric pressure from REST APIs, loading processed data into PostgreSQL on a daily schedule using AWS Lambda with processed data archived to S3. Developed a weighted scoring model which factors stocking recency, water temperature, pressure trends, and cloud coverage to rank optimal fishing locations by day, visualized through an interactive dashboard with maps, rankings, and historical trend visualizations."
+    "description": "Mollitia reiciendis autem voluptatum numquam laborum non ex expedita, velit quo perferendis adipisci deserunt, consequatur quae quas cumque alias enim optio tempore placeat! Ipsum sequi perspiciatis voluptates qui facere rerum!"
   }
 ]
