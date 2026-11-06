@@ -163,6 +163,24 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
 
+.stats {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 0 1em;
+}
+
+.stats dt{
+  grid-row: 1;
+}
+
+.stats dd{
+  grid-row: 2;
+  margin: 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+
 .project-year {
   font-family: Baskerville, serif;
   font-variant-numeric: oldstyle-nums;
