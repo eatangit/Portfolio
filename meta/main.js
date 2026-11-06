@@ -50,7 +50,7 @@ function renderCommitInfo(data, commits) {
     dl.append('dd').text(commits.length);
 
     dl.append('dt').text('Files');
-    dl.append('dd').text(d3.groups(data, (d) => d.file).size);
+    dl.append('dd').text(d3.group(data, (d) => d.file).size);
 
     dl.append('dt').text('Max Depth');
     dl.append('dd').text(d3.max(data, (d) => d.depth));
@@ -66,7 +66,6 @@ function renderCommitInfo(data, commits) {
 
 let data = await loadData();
 let commits = processCommits(data);
-console.log(commits);
 
 renderCommitInfo(data, commits);
 
