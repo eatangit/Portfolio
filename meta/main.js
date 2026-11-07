@@ -124,7 +124,61 @@ function renderScatterPlot(data, commits) {
             .attr('cx', (d) => xScale(d.datetime))
             .attr('cy', (d) => yScale(d.hourFrac))
             .attr('r', 5)
-            .attr('fill', 'steelblue');
+            .attr('fill', 'steelblue')
+            .on('mouseenter', (event, commit) => {
+                renderTooltipContent(commit);
+                updateTooltipVisibility(true);
+                updateTooltipPosition(event);
+            })
+            .on('mouseleave', () => {
+                updateTooltipVisibility(false);
+            });
+}
+
+function renderTooltipContent(commit) {
+    const link = document.getElementById('commit-link');
+    const date = document.getElementById('commit-date');
+    const time = document.getElementById('commit-time');
+    const author = document.getElementById('commit-author');
+    const lines = document.getElementById('commit-lines');
+
+    if (Object.keys(commit).length === 0) return;
+
+    link.href = commit.url;
+    link.textContent = commit.id;
+    date.textContent = commit.datetime?.toLocaleString('en', {
+        dateStyle: 'full',
+    });
+    time.textContent = commit.datetime?.toLocaleString('en', {
+        timeStyle: 'short',
+    });
+    author.textContent = commit.author;
+    lines.textContent = commit.totalLines;
+}
+
+function updateTooltipVisibility(isVisible) {
+    const tooltip = document.getElementById('commit-tooltip');
+    tooltip.hidden = !isVisible;
+}
+
+function updateTooltipPosition(event) {
+    const tooltip = document.getElementById('commit-tooltip');
+    const offset = 10;
+    const {width, height} = tooltip.getBoundingClientRect();
+    const pageWidth = document.documentElement.clientWidth;
+    const pageHeight = document.documentElement.clientHeight;
+
+    let left = event.clientX + offset;
+    let right = event.clientY + offset;
+
+    if (left + width > pageWidth) {
+        left = event.clientX - width - offset;
+    }
+    if (right + height > pageHeight) {
+        right = event.clientY - height - offset;
+    }
+    tooltip.style.left = `${Math.max(0, left)}px`;
+    tooltip.style.top = `${Math.max(0, right)}px`;
 }
 
 let data = await loadData();
