@@ -20,8 +20,7 @@ let pages = [
     { url: 'https://github.com/eatangit', title: 'GitHub' }
 ]
 
-const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1") 
-? "/" : "/Portfolio/";
+const BASE_PATH = new URL('.', import.meta.url).pathname;
 
 let nav = document.createElement('nav');
 document.body.prepend(nav);
@@ -132,7 +131,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 
       article.innerHTML = `
         <${headingLevel}>${project.title}</${headingLevel}>
-        <img src="${project.image}" alt="${project.title}">
+        <img src="${new URL(project.image, import.meta.url).href}" alt="${project.title}">
         <div>
             <p>${project.description}</p>
             <p class = "project-year">c. ${project.year}</p>

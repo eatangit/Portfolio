@@ -79,6 +79,11 @@ form button {
   display:grid;
 }
 
+.projects img {
+  max-width: 100%;
+  height: auto;
+}
+
 .projects h2 {
   margin: 0;
 }

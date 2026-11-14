@@ -1,5 +1,12 @@
 [
   {
+    "title": "Bikewatching",
+    "year": "2026",
+    "image": "images/bikewatching_ss.png",
+    "url": "https://eatangit.github.io/bikewatching/",
+    "description": "DSC 106 Lab 7: an interactive map of Boston-area bike traffic built with Mapbox GL JS and D3. Shows Boston and Cambridge bike lanes and Bluebikes stations sized by trip volume and colored by the balance of departures and arrivals, with a time-of-day slider that filters over 260,000 trips from March 2024."
+  },
+  {
     "title": "Are Countries Getting Worse on Emissions as They Urbanize?",
     "year": "2026",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
