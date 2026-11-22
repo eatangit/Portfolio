@@ -411,3 +411,62 @@ d3.select('#scatter-story')
     `,
     );
 
+function onStepEnter(response) {
+    const commit = response.element.__data__;
+    commitMaxTime = commit.datetime;
+    filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
+    updateScatterPlot(data, filteredCommits);
+    updateFileDisplay(filteredCommits);
+    timeSlider.value = timeScale(commitMaxTime);
+    selectedTime.textContent = commitMaxTime.toLocaleString('en', { dateStyle: 'long', timeStyle: 'short' });
+
+}
+
+const scroller = scrollama();
+scroller
+    .setup({
+        container: '#scrolly-1',
+        step: '#scrolly-1 .step',
+    })
+    .onStepEnter(onStepEnter);
+
+
+
+d3.select('#files-story')
+    .selectAll('.step')
+    .data(commits)
+    .join('div')
+    .attr('class', 'step')
+    .html((d) => {
+        const filesTouched = d3
+            .rollups(
+                d.lines,
+                (D) => D.length,
+                (line) => line.file,
+            )
+            .sort((a, b) => b[1] - a[1]);
+        return `
+        On ${d.datetime.toLocaleString('en', {
+            dateStyle: 'full',
+            timeStyle: 'short',
+        })},
+        I edited ${d.totalLines} lines in
+        ${filesTouched
+            .map(([file, count]) => `<code>${file}</code> (${count})`)
+            .join(', ')}.
+    `;
+    });
+
+function onFilesStepEnter(response) {
+    const commit = response.element.__data__;
+    const filesCommits = commits.filter((d) => d.datetime <= commit.datetime);
+    updateFileDisplay(filesCommits);
+}
+
+const filesScroller = scrollama();
+filesScroller
+    .setup({
+        container: '#scrolly-2',
+        step: '#scrolly-2 .step',
+    })
+    .onStepEnter(onFilesStepEnter);

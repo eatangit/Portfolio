@@ -389,7 +389,8 @@ circle.selected {
   border-radius: 50%;
 }
 
-#scrolly-1 {
+#scrolly-1,
+#scrolly-2 {
   position: relative;
   display: flex;
   gap: 1rem;
@@ -399,18 +400,26 @@ circle.selected {
   }
 }
 
-#scatter-story {
+#scatter-story,
+#files-story {
   position: relative;
 }
 
 #scatter-plot {
   position: sticky;
-  top: 0;
+  top: 2rem;
   left: 0;
   bottom: auto;
   height: 50vh;
 }
 
-#scatter-story .step {
-  padding-bottom: 50vh;
+#scatter-story .step,
+#files-story .step {
+  padding-bottom: 20vh;
+}
+
+#files-plot {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
 }

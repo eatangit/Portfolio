@@ -13,6 +13,10 @@
         <p>This page includes stats about the code of this website.</p>
         <div id="stats"></div>
         <h2>Commits by time of day</h2>
+        <p>
+            Scroll through my commit history below. The scatter plot fills in one commit at a time.
+            Below is also a interactive scroll story that shows the lines of code in each file over time.
+        </p>
         <div id="slider-container">
             <label for="commit-progress">
                 Show commits until:
@@ -30,9 +34,18 @@
             </div>
         </div>
 
-        <dl id="files">
-            <!-- each file will be: <div><dt><code>filename</code></dt><dd>N lines</dd></div> -->
-        </dl>
+        <h2>The race for the biggest file</h2>
+        <p>
+            Each dot is one line of code, colored by language. Scroll to watch the files grow commit by commit.
+        </p>
+        <div id="scrolly-2">
+            <div id="files-plot">
+                <dl id="files">
+                    <!-- each file will be: <div><dt><code>filename</code></dt><dd>N lines</dd></div> -->
+                </dl>
+            </div>
+            <div id="files-story"></div>
+        </div>
 
         <dl id = "commit-tooltip" class = "info tooltip" hidden>
             <dt>Commit</dt>
