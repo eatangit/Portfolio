@@ -132,7 +132,7 @@ function renderScatterPlot(data, commits) {
 
         dots
             .selectAll('circle')
-            .data(sortedCommits)
+            .data(sortedCommits, (d) => d.id)
             .join('circle')
             .attr('cx', (d) => xScale(d.datetime))
             .attr('cy', (d) => yScale(d.hourFrac))
@@ -184,8 +184,9 @@ function updateScatterPlot(data, commits) {
 
     dots
         .selectAll('circle')
-        .data(sortedCommits)
+        .data(sortedCommits, (d) => d.id)
         .join('circle')
+        .style('--r', (d) => rScale(d.totalLines))
         .attr('cx', (d) => xScale(d.datetime))
         .attr('cy', (d) => yScale(d.hourFrac))
         .attr('r', (d) => rScale(d.totalLines))
@@ -203,6 +204,35 @@ function updateScatterPlot(data, commits) {
         });
 }
 
+function updateFileDisplay(filteredCommits) {
+    let lines = filteredCommits.flatMap((d) => d.lines);
+    let files = d3
+        .groups(lines, (d) => d.file)
+        .map(([name, lines]) => ({ name, lines }));
+
+    let filesContainer = d3
+        .select('#files')
+        .selectAll(':scope > div')
+        .data(files, (d) => d.name)
+        .join((enter) =>
+            enter.append('div').call((div) => {
+                div.append('dt').append('code');
+                div.append('dd');
+            }),
+        );
+
+    filesContainer
+        .select('dt')
+        .html((d) => `<code>${d.name}</code><small>${d.lines.length} lines</small>`);
+
+    filesContainer
+        .select('dd')
+        .selectAll('div')
+        .data((d) => d.lines)
+        .join('div')
+        .attr('class', 'loc');
+
+}
 
 function renderTooltipContent(commit) {
     const link = document.getElementById('commit-link');
@@ -345,6 +375,7 @@ function onTimeSliderChange() {
     });
     filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
     updateScatterPlot(data, filteredCommits);
+    updateFileDisplay(filteredCommits);
 }
 
 timeSlider.addEventListener('input', onTimeSliderChange);
