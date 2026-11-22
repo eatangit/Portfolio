@@ -1,7 +1,9 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
+import scrollama from 'https://cdn.jsdelivr.net/npm/scrollama@3.2.0/+esm';
 
 let xScale;
 let yScale;
+let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
 async function loadData() {
     const data = await d3.csv('loc.csv', (row) => ({
@@ -40,7 +42,8 @@ function processCommits(data) {
                 configurable: false,
             });
             return ret;
-        });
+        })
+        .sort((a, b) => a.datetime - b.datetime);
 }
 
 function renderCommitInfo(data, commits) {
@@ -208,7 +211,8 @@ function updateFileDisplay(filteredCommits) {
     let lines = filteredCommits.flatMap((d) => d.lines);
     let files = d3
         .groups(lines, (d) => d.file)
-        .map(([name, lines]) => ({ name, lines }));
+        .map(([name, lines]) => ({ name, lines }))
+        .sort((a, b) => b.lines.length - a.lines.length);
 
     let filesContainer = d3
         .select('#files')
@@ -230,7 +234,8 @@ function updateFileDisplay(filteredCommits) {
         .selectAll('div')
         .data((d) => d.lines)
         .join('div')
-        .attr('class', 'loc');
+        .attr('class', 'loc')
+        .attr('style', (d) => `--color: ${colors(d.type)}`);
 
 }
 
@@ -380,4 +385,29 @@ function onTimeSliderChange() {
 
 timeSlider.addEventListener('input', onTimeSliderChange);
 onTimeSliderChange();
+
+d3.select('#scatter-story')
+    .selectAll('.step')
+    .data(commits)
+    .join('div')
+    .attr('class', 'step')
+    .html(
+        (d, i) => `
+        On ${d.datetime.toLocaleString('en', {
+            dateStyle: 'full',
+            timeStyle: 'short',
+        })},
+        I made <a href="${d.url}" target="_blank">${
+            i > 0 ? 'another glorious commit' : 'my first commit, and it was glorious'
+        }</a>.
+        I edited ${d.totalLines} lines across ${
+            d3.rollups(
+                d.lines,
+                (D) => D.length,
+                (d) => d.file,
+            ).length
+        } files.
+        Then I looked over all I had made, and I saw that it was very good.
+    `,
+    );
 
