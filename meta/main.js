@@ -205,6 +205,9 @@ function updateScatterPlot(data, commits) {
             d3.select(event.currentTarget).style('fill-opacity', 0.7);
             updateTooltipVisibility(false);
         });
+
+    // re-apply the current brush selection to the newly visible commits
+    brushed({ selection: d3.brushSelection(svg.node()) });
 }
 
 function updateFileDisplay(filteredCommits) {
@@ -310,7 +313,7 @@ function isCommitSelected(selection, commit) {
 
 function renderSelectionCount(selection) {
     const selectedCommits = selection
-        ? commits.filter((d) => isCommitSelected(selection, d))
+        ? filteredCommits.filter((d) => isCommitSelected(selection, d))
         : [];
     const countElement = document.querySelector('#selection-count');
     countElement.textContent = `${
@@ -322,7 +325,7 @@ function renderSelectionCount(selection) {
 
 function renderLanguageBreakdown(selection) {
     const selectedCommits = selection
-        ? commits.filter((d) => isCommitSelected(selection, d))
+        ? filteredCommits.filter((d) => isCommitSelected(selection, d))
         : [];
     const container = document.getElementById('language-breakdown');
 
@@ -355,36 +358,11 @@ let commits = processCommits(data);
 renderCommitInfo(data, commits);
 renderScatterPlot(data, commits);
 
-let commitProgress = 100;
-
-let timeScale = d3
-    .scaleTime()
-    .domain([
-        d3.min(commits, (d) => d.datetime),
-        d3.max(commits, (d) => d.datetime),
-    ])
-    .range([0, 100]);
-
-let commitMaxTime = timeScale.invert(commitProgress);
+let commitMaxTime = d3.max(commits, (d) => d.datetime);
 let filteredCommits = commits;
 
-const timeSlider = document.getElementById('commit-progress');
-const selectedTime = document.getElementById('slider-time');
-
-function onTimeSliderChange() {
-    commitProgress = Number(timeSlider.value);
-    commitMaxTime = timeScale.invert(commitProgress);
-    selectedTime.textContent = commitMaxTime.toLocaleString('en', {
-        dateStyle: 'long',
-        timeStyle: 'short',
-    });
-    filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
-    updateScatterPlot(data, filteredCommits);
-    updateFileDisplay(filteredCommits);
-}
-
-timeSlider.addEventListener('input', onTimeSliderChange);
-onTimeSliderChange();
+updateScatterPlot(data, filteredCommits);
+updateFileDisplay(filteredCommits);
 
 d3.select('#scatter-story')
     .selectAll('.step')
@@ -417,9 +395,6 @@ function onStepEnter(response) {
     filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
     updateScatterPlot(data, filteredCommits);
     updateFileDisplay(filteredCommits);
-    timeSlider.value = timeScale(commitMaxTime);
-    selectedTime.textContent = commitMaxTime.toLocaleString('en', { dateStyle: 'long', timeStyle: 'short' });
-
 }
 
 const scroller = scrollama();
